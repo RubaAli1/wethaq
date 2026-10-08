@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="وِثاق - أداة ذكية لتحليل الرسائل والروابط واكتشاف المؤشرات التي تستحق الانتباه.">
+    <meta name="theme-color" content="#f4f1eb">
+    <title>وِثاق | تحقّق قبل أن تثق</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page-background"></div>
+
+    <header class="site-header">
+        <a href="#" class="brand" aria-label="العودة إلى الصفحة الرئيسية">
+            <span class="brand-mark">
+                <span class="brand-mark-line"></span>
+            </span>
+
+            <span class="brand-name">وِثاق</span>
+        </a>
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            <span>تحقق بوعي</span>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+
+        <section class="hero-section">
+
+            <div class="hero-badge">
+                
+                <span>تحليل ذكي للمحتوى الرقمي</span>
+            </div>
+
+            <h1>
+                تحقّق
+                <span>قبل أن تثق</span>
+            </h1>
+
+            <p class="hero-description">
+                أرسل رسالة أو رابطًا يثير شكّك،
+                ودع وِثاق يبحث عن المؤشرات التي تستحق انتباهك.
+            </p>
+
+        </section>
+
+
+        <section class="verification-card" aria-label="أداة التحقق">
+
+            <div class="verification-tabs" role="tablist" aria-label="نوع التحقق">
+
+                <button
+                    class="verification-tab active"
+                    id="message-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="message-panel"
+                >
+                    <span class="tab-icon">✉</span>
+                    <span>تحقق من رسالة</span>
+                </button>
+
+                <button
+                    class="verification-tab"
+                    id="link-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="link-panel"
+                >
+                    <span class="tab-icon">⌁</span>
+                    <span>تحقق من رابط</span>
+                </button>
+
+            </div>
+
+
+            <div class="verification-content">
+
+                <div class="input-panel active" id="message-panel" role="tabpanel">
+
+                    <div class="input-heading">
+                        <div>
+                            <h2>الصق الرسالة هنا</h2>
+                            <p>يمكنك إدخال الرسالة بالعربية أو الإنجليزية.</p>
+                        </div>
+
+                        <span class="input-type-label">رسالة</span>
+                    </div>
+
+                    <div class="textarea-wrapper">
+
+                        <textarea
+                            id="message-input"
+                            class="verification-input"
+                            placeholder="الصق الرسالة التي وصلتك هنا..."
+                            maxlength="5000"
+                            aria-label="الرسالة المراد تحليلها"
+                        ></textarea>
+
+                        <div class="input-footer">
+                            <span class="privacy-note">
+                                <span class="privacy-icon">⌾</span>
+                                لا نحتاج إلى معلوماتك الشخصية
+                            </span>
+
+                            <span class="character-count">
+                                <span id="message-count">0</span> / 5000
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-panel" id="link-panel" role="tabpanel">
+
+                    <div class="input-heading">
+                        <div>
+                            <h2>أدخل الرابط هنا</h2>
+                            <p>يمكنك إدخال الرابط بأي صيغة تبدأ بعنوان الموقع.</p>
+                        </div>
+
+                        <span class="input-type-label">رابط</span>
+                    </div>
+
+                    <div class="link-input-wrapper">
+
+                        <span class="link-prefix">https://</span>
+
+                        <input
+                            type="text"
+                            id="link-input"
+                            class="link-input"
+                            placeholder="example.com"
+                            autocomplete="off"
+                            spellcheck="false"
+                            aria-label="الرابط المراد تحليله"
+                        >
+
+                    </div>
+
+                    <div class="link-helper">
+                        <span class="privacy-icon">⌾</span>
+                        لن يتم فتح الرابط تلقائيًا أثناء الفحص.
+                    </div>
+
+                </div>
+
+
+                <button class="verify-button" id="verify-button" type="button">
+
+                    <span class="button-text">ابدأ التحقق</span>
+
+                    <span class="button-icon">
+                        <span>←</span>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="result-section hidden" id="result-section" aria-live="polite">
+
+            <div class="result-card">
+
+                <div class="result-header">
+
+                    <div class="result-status-icon">
+                        <span>!</span>
+                    </div>
+
+                    <div class="result-title-group">
+                        <span class="result-label">نتيجة التحليل</span>
+                        <h2 id="result-title">يحتاج إلى الحذر</h2>
+                    </div>
+
+                    <span class="result-level" id="result-level">
+                        مستوى الانتباه: مرتفع
+                    </span>
+
+                </div>
+
+
+                <div class="result-summary">
+                    <p id="result-summary">
+                        وجدنا عدة مؤشرات تستحق المراجعة قبل التفاعل مع هذا المحتوى.
+                    </p>
+                </div>
+
+
+                <div class="indicators-section">
+
+                    <div class="section-heading">
+                        <h3>مؤشرات التحليل</h3>
+                        <span id="indicator-count">4 مؤشرات</span>
+                    </div>
+
+                    <div class="indicators-list" id="indicators-list">
+
+                        <div class="indicator-item">
+                            <span class="indicator-number">01</span>
+
+                            <div class="indicator-content">
+                                <h4>طلب معلومات حساسة</h4>
+                                <p>قد يتضمن المحتوى طلبًا لبيانات شخصية أو معلومات لا يُنصح بمشاركتها.</p>
+                            </div>
+                        </div>
+
+                        <div class="indicator-item">
+                            <span class="indicator-number">02</span>
+
+                            <div class="indicator-content">
+                                <h4>أسلوب استعجالي</h4>
+                                <p>وجود صياغة تضغط على المستخدم لاتخاذ إجراء سريع دون التحقق.</p>
+                            </div>
+                        </div>
+
+                        <div class="indicator-item">
+                            <span class="indicator-number">03</span>
+
+                            <div class="indicator-content">
+                                <h4>رابط غير مألوف</h4>
+                                <p>قد يحتوي الرابط على عناصر تحتاج إلى التحقق من مصدرها قبل فتحها.</p>
+                            </div>
+                        </div>
+
+                        <div class="indicator-item">
+                            <span class="indicator-number">04</span>
+
+                            <div class="indicator-content">
+                                <h4>انتحال محتمل</h4>
+                                <p>قد يوحي المحتوى بأنه صادر من جهة موثوقة دون وجود دليل كافٍ على ذلك.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="advice-box">
+
+                    <div class="advice-icon">✓</div>
+
+                    <div>
+                        <span>نصيحتنا</span>
+                        <p>
+                            لا تضغط على الرابط أو تشارك معلوماتك قبل التأكد من الجهة المرسلة.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <button class="new-check-button" id="new-check-button" type="button">
+                    إجراء تحقق جديد
+                    <span>↻</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="trust-section">
+
+            <div class="trust-item">
+                <span class="trust-icon">⌾</span>
+                <div>
+                    <strong>خصوصيتك أولًا</strong>
+                    <span>لا نطلب بياناتك الشخصية.</span>
+                </div>
+            </div>
+
+            <div class="trust-divider"></div>
+
+            <div class="trust-item">
+                <span class="trust-icon">◇</span>
+                <div>
+                    <strong>تحليل لا حكم مطلق</strong>
+                    <span>النتيجة مؤشر يساعدك على اتخاذ قرار واعٍ.</span>
+                </div>
+            </div>
+
+            <div class="trust-divider"></div>
+
+            <div class="trust-item">
+                <span class="trust-icon">✦</span>
+                <div>
+                    <strong>بسيط وواضح</strong>
+                    <span>مؤشرات مفهومة دون تعقيد تقني.</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+            <span>وِثاق</span>
+            <span>تحقّق قبل أن تثق</span>
+        </div>
+
+        <p>
+            أداة توعوية للمساعدة على التحقق من المحتوى الرقمي.
+        </p>
+
+        <span class="footer-copy">
+            © 2026 ازهار
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
